@@ -1,0 +1,254 @@
+<div class="container room-description-view">
+    <div class="panel-defualt">
+     <div class="panel-body ">
+        <!-- image -->
+        <div class="row">
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+
+        <br/>
+
+        <!-- Main Info -->
+        <div class="row">
+         <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-3 tex-t-center">
+                    <%= image_tag avatar_url(@room.user), class: "img-thumbnail avatar-large" %><br/>
+                    <h3><% @room.user.fname%>Nour</h3>
+                </div>
+                <div class="col-md-9">
+                    <h4><%= @room.list_name %></h4>
+                    <%= @room.street_address %>
+                    <%= @room.bldg_number%>
+                <div class="row text-center row-space-1">
+                    <div class="col-sm-3">
+                     <i class="fa fa-home fa-2x"></i>
+                    </div>
+                    <div class="col-sm-3">
+                     <i class="fa fa-users fa-2x"></i>
+                    </div>
+                    <div class="col-sm-3">
+                     <i class="fa fa-bed fa-2x"></i>
+                    </div>
+                     <div class="col-sm-3">
+                     <i class="material-icons" style="font-size: 34px">wc</i>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-sm-3">
+                            <%= @room.property_type %>
+                        </div>
+                        <div class="col-sm-3">
+                            <%= @room.accommodate %> <%= @room.accommodate > 1 ? "Guests" : "Guest" %>
+                        </div>
+                        <div class="col-sm-3">
+                            <%= @room.num_bedroom %> <%= @room.num_bedroom > 1 ? "Bedrooms" : "Bedroom" %>
+                        </div>
+                        <div class="col-sm-3">
+                            <%= @room.num_bathroom %> <%= @room.num_bathroom > 1 ? "Bathrooms" : "Bathroom" %>
+                        </div>
+        
+                    </div>
+                </div>
+                </div>
+            </div>
+         </div>
+        </div>
+
+        <!-- About -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About This Listing</h2>
+                <p><%= @room.summary%></p>
+            </div>
+        </div>
+        <hr>
+        <br/>
+        <!-- The Space -->
+        <div class="row">
+         <div class="col-md-2">
+             <p style="font-family: cursive;color: #fd802f;font-size: 20px;"> The Space </p>
+         </div>
+         <div class="col-md-10">
+             <div class="row">
+                 <div class="col-md-6">
+                     <ol class="the-space">
+                        <li>Room type: <span class="space-info"><%= @room.room_type%></span> </li>
+                        <li>Property type: <span class="space-info"><%= @room.property_type%></span></li>
+                        <li>Accommodate: <span class="space-info"> <%= @room.accommodate%></span></li>
+                     </ol>
+                 </div>
+                 <div class="col-md-6">
+                    <ol class="the-space">
+                        <li>Number Bedroom:  <span class="space-info"><%= @room.num_bedroom%> </span></li>
+                        <li>Number Bed: <span class="space-info"><%= @room.num_bed%> </span></li>
+                        <li>Number Bathroom: <span class="space-info"> <%= @room.num_bathroom%></span></li>
+                    </ol>
+                 </div>
+             </div>
+         </div>
+        </div>
+        <hr>
+        <br/>
+         <!-- Amentities -->
+         <div class="row">
+             <div class="col-md-2">
+                 <p style="font-family: cursive;color: #fd802f;font-size: 20px;"> Amentities </p>
+             </div>
+             <div class="col-md-10">
+                 <div class="row">
+                     <div class="col-md-6">
+                         <ul class="amentities">
+                         <li class="<%= 'text-line-through' if !@room.is_breakfast %>">Breakfast</li>
+                         <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Kitchen</li>
+                         <li class="<%= 'text-line-through' if !@room.is_tv %>">TV</li>
+                         <li class="<%= 'text-line-through' if !@room.is_dryer %>">Dryer</li>
+                         <li class="<%= 'text-line-through' if !@room.is_iron %>">Iron</li>
+                         <li class="<%= 'text-line-through' if !@room.is_heating %>">Heating</li>
+                         <li class="<%= 'text-line-through' if !@room.is_pool %>">Pool</li>
+                         <li class="<%= 'text-line-through' if !@room.is_fan %>">Fan</li>
+                         <li class="<%= 'text-line-through' if !@room.is_hair_dryer %>">Hair Dryer</li>
+                         <li class="<%= 'text-line-through' if !@room.is_hangers %>">Hangers</li>
+                         <li class="<%= 'text-line-through' if !@room.is_hot_tub %>">Hot tub</li>
+                         <li class="<%= 'text-line-through' if !@room.is_washer%>"> Washer</li>
+                         <li class="<%= 'text-line-through' if !@room.is_elevator %>">Elevator</li>
+                         <li class="<%= 'text-line-through' if !@room.is_indoor_fireplace %>">Indoor fireplace</li>
+                         </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <ul class="amentities">
+                         <li class="<%= 'text-line-through' if !@room.is_family_friens %>">Family/Friends</li>
+                         <li class="<%= 'text-line-through' if !@room.is_home_gym %>">Home Gym</li>
+                         <li class="<%= 'text-line-through' if !@room.is_essentials %>">Essentials</li>
+                         <li class="<%= 'text-line-through' if !@room.is_suitable_for_events %>">Suitable For Events</li>
+                         <li class="<%= 'text-line-through' if !@room.is_pets_allowed %>">Pets allowed</li>
+                         <li class="<%= 'text-line-through' if !@room.is_hour_check_in %>">24 Hour Check In</li>
+                         <li class="<%= 'text-line-through' if !@room.is_wheelchair_accessible %>">Wheelchair Accessible</li>
+                         <li class="<%= 'text-line-through' if !@room.is_shampoo %>">Shampoo</li>
+                         <li class="<%= 'text-line-through' if !@room.is_smoking_allowed %>">Smoking Allowed</li>
+                         <li class="<%= 'text-line-through' if !@room.is_air_conditioning %>">Air Conditioning</li>
+                         <li class="<%= 'text-line-through' if !@room.is_doorman %>">Doorman</li>
+                        </ul>
+                     </div>
+                 </div>
+             </div>
+        </div>
+        <hr>
+        <br/>
+        <!-- Near by -->
+        <div class="row">
+            <div class="col-md-2">
+                <p style="font-family: cursive;color: #fd802f;font-size: 20px;"> Near by </p>
+            </div>
+            <div class="col-md-10">
+                 <div class="row">
+                     <div class="col-md-6">
+                         <ul class="near-by">
+                         <li class="<%= 'text-line-through' if !@room.is_restaurant %>">Rearurant</li>
+                         <li class="<%= 'text-line-through' if !@room.is_store %>">Stores</li>
+                         <li class="<%= 'text-line-through' if !@room.is_mall %>">Mall</li>
+                         <li class="<%= 'text-line-through' if !@room.is_school %>">School</li>
+                         <li class="<%= 'text-line-through' if !@room.is_gym %>">Gym</li>
+                         <li class="<%= 'text-line-through' if !@room.is_park %>">Park</li>
+                         <li class="<%= 'text-line-through' if !@room.is_gas_station %>">Gas station</li>
+
+                         </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <ul class="near-by">
+                         <li class="<%= 'text-line-through' if !@room.is_hypermarket %>">Hypermarket</li>
+                         <li class="<%= 'text-line-through' if !@room.is_collage %>">Collage</li>
+                         <li class="<%= 'text-line-through' if !@room.is_daycare %>">Daycare</li>
+                         <li class="<%= 'text-line-through' if !@room.is_transportation%>">Transportation</li>
+                         <li class="<%= 'text-line-through' if !@room.is_hospital %>">Hospital</li>
+                         <li class="<%= 'text-line-through' if !@room.is_health_center %>">Health center</li>
+                         <li class="<%= 'text-line-through' if !@room.is_coffeeshop %>">Coffeeshop</li>
+                        </ul>
+                     </div>
+                 </div>
+             </div>
+        </div>
+        <hr>
+        <br/>
+        <!-- Prices -->
+        <div class="row">
+         <div class="col-md-2">
+             <p style="font-family: cursive;color: #fd802f;font-size: 20px;"> Prices </p>
+         </div>
+         <div class="col-md-10">
+             <div class="row">
+                 <div class="col-md-6">
+                     <ol class="the-space">
+                       <li>Nightly Price: <span class="space-info">$<%= @room.nightly_price%></span> </li>
+                       <li>Weekly Price: <span class="space-info">$<%= @room.weekly_price%></span></li>
+                       <li>Monthly Price: <span class="space-info">$<%= @room.monthly_price%></span></li>
+                       <li>Basic Fund: <span class="space-info">$<%= @room.basic_fund%> </span></li>
+                     </ol>
+                 </div>
+                 <div class="col-md-6">
+                    <ol class="the-space">
+                      <li>Service Fee:  <span class="space-info">$<%= @room.service_fee%> </span></li>
+                      <li>Cleaning Fee: <span class="space-info">$<%= @room.cleaing_fee%> </span></li>
+                      <li>Security Deposit: <span class="space-info">$<%= @room.security_deposit%></span></li>
+                      <li>Cancellation: <span class="space-info"><%= @room.cancellation%> </span></li>
+                    </ol>
+                 </div>
+             </div>
+         </div>
+        </div>
+        <hr>
+        <br/>
+
+        <!-- Description -->
+        <div class="row">
+            <div class="col-md-2">
+                <p style="font-family: cursive;color: #fd802f;font-size: 20px;">House Rules</p>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-6">
+                    <p><%= @room.home_rules%></p>
+                  </div> 
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br/>
+
+        <!-- Map -->
+        <div class="row">
+            <div class="col-md-12">
+             <div id="map"></div>
+                <style>
+                #map {
+                    width: 100%;
+                    height: 400px;
+                }
+                </style>
+                <script>
+                  function initMap() {
+                    var mapDiv = document.getElementById('map');
+                    var map = new google.maps.Map(mapDiv, {
+                      center: {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>},
+                      zoom: 14
+                    });
+                    var marker = new google.maps.Marker({
+                    map: map,
+                    position: {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>},
+                    title: 'AirShips'
+                    });
+                    marker.setMap(map);
+                  }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+                    async defer>
+                </script>
+
+            </div>
+        </div>
+
+     </div>
+    </div>
+</div>

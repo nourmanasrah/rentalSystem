@@ -1,0 +1,437 @@
+ <%= form_for @room  do |f| %>
+<div class="container room-list">
+   <div class="contant listing-tabs">
+      <div class="col-md-3">
+         <h3 class="listing-lable">Listing</h3>
+         <ul class="nav nav-tabs nav-stacked">
+            <li class="list-select active"><a  href="#tab1" style="color:#fd802f;" data-toggle="tab">Basics</a></li>
+            <li class="list-select"><a href="#tab2" style="color:#fd802f;" data-toggle="tab">Description</a></li>
+            <li class="list-select"><a href="#tab3" style="color:#fd802f;" data-toggle="tab" >Location</a></li>
+            <li class="list-select"><a href="#tab4" style="color:#fd802f;" data-toggle="tab">Near By</a></li>
+            <li class="list-select"><a href="#tab5" style="color:#fd802f;" data-toggle="tab">Amenities</a></li>
+            <li class="list-select"><a href="#tab6" style="color:#fd802f;" data-toggle="tab">Photos</a></li>
+            <li class="list-select"><a href="#tab7" style="color:#fd802f;" data-toggle="tab">House Rules & Cancellation</a></li>
+            <li class="list-select"><a href="#tab8" style="color:#fd802f;" data-toggle="tab">Pricing</a></li>
+         </ul>
+           <div class="col-md-9">
+            <br/>
+              <%= f.submit "Save", class:"btn btn-warning btn-block"%>
+           </div>
+      </div>
+      <div class="col-md-9">
+          <!-- Basics -->
+         <div class="tab-pane fade  hide active in" id="tab1">
+            <div class="panel panel-default panel-content position">
+               <div class="panel-body">
+                  <h3> Help travelers find the right fit </h3>
+                  <br/>
+                  <h5> People searching on Airships  can filter by listing basics to find a <br/>space that matches their needs. </h5>
+                  <div class="col-md-9">
+                     <hr>
+                     <h4>Listing</h4>
+                     <div class="row">
+                        <div class="manage-list order">
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label>Propert Type</label>
+                                <%= f.select :property_type, [["Apartment","Apartment"], ["Loft","Loft"],["Villa","Villa"],["House","House"],["Chalet","Chalet"],["Townhouse","Townhouse"],["Bed & Breakfast","Bed & Breakfast"]], id: "propert-type", class:"form-control" %>
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label>Home Type</label>
+                                 <%= f.select :room_type, [["Entire home/apt","Entire home/apt"], ["Shared Room","Shared Room"],["Private Room","Private Room"]], id: "room-type", class:"form-control" %>
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group">
+                                 <label>Accommodates</label>
+                                 <%= f.select :accommodate, [["1",1], ["2",2],["3",3], ["4",4],["5",5]], id: "accommodates", class:"form-control" %>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <hr>
+                     <div class="row">
+                        <div class="manage-list order">
+                           <div class="col-md-4">
+                             <div class="form-group">
+                                  <label>Bedroom</label>
+                                  <%= f.select :num_bedroom, [["1",1], ["2",2],["3",3], ["4",4],["5+",5]], id: "num-bedroom,", class:"form-control" %>
+                             </div>
+                           </div>
+                           
+                           <div class="col-md-4">
+                             <div class="form-group">
+                                  <label>Bed</label>
+                                  <%= f.select :num_bed,[["1",1], ["2",2],["3",3], ["4",4],["5",5],["6+",6]], id: "num-bad", class:"form-control" %>
+                             </div>
+                           </div>
+                          <div class="col-md-4">
+                             <div class="form-group">
+                               <label>Bathroom</label>
+                                 <%= f.select :num_bathroom, [["1",1], ["2",2],["3",3], ["4",4],["5",5],["6+",6]], id: "num-bathroom,", class:"form-control" %>
+                             </div>
+                           </div>
+                         </div> 
+                  </div>
+               </div>
+            </div>
+           </div>
+         </div>
+          <!-- Description -->
+         <div class="tab-pane fade  hide" id="tab2">
+            <div class="panel panel-default panel-content position">
+               <div class="panel-body position">
+                  <h3> Tell travelers about your space</h3>
+                  <br/>
+                  <h5> Every space on Airships is unique. Highlight what makes <br/> your listing  welcoming so that it stands out to guests <br/> who want to stay in your area. </h5>
+                 <div class="col-md-9">
+                 <hr>
+                   <label>Listing name</label>
+                   <%= f.text_field :list_name, id: "listing-name", class:"form-control" %>
+                    <br/>
+                   <label>Summary</label>
+                   <%= f.text_area :summary, rows: 10, cols: 25, :placeholder => "Tell Travelers what you love about the space.", :class => 'form-control' %>
+                    <h5> You can add more details to tell travelers about your space and hosting style. </h5>
+                 </div>
+               </div>
+            </div>
+         </div>       
+
+         <!-- Location -->
+        <div class="tab-pane fade hide " id="tab3">
+          <div class="panel panel-default panel-content">
+           <div class="panel-body position">
+            <h2>Help guests find your place</h2>
+            <br/>
+            <h5>Travelers will use this information to find a place that’s in the right spot.</h5>
+            <div class="col-md-9">
+              <hr>
+              <label>Country</label>
+              <%= f.text_field :country, id: "country", class:"form-control" %>
+              <br/>
+              <label>Street Address</label>
+              <%= f.text_field :street_address, id: "street-address", class:"form-control", placeholder: 'House street/road' %>
+              <br/>
+              <div class="row">
+               <div class="col-md-12">
+                <div class="col-md-6">
+                  <label>City</label>
+                  <%= f.text_field :city, id: "city", class:"form-control" %>
+                </div>
+                 <div class="col-md-6">
+                  <label>Building</label>
+                  <%= f.text_field :bldg_number, id: "bldg", placeholder: 'Apt, Suite, Bldg',class:"form-control" %>
+                </div>
+              </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+
+        <!-- Near By -->
+        <div class="tab-pane fade hide" id="tab4">
+           <div class="panel panel-default panel-content">
+             <div class="panel-body position">
+             <h2>Help guests find the places Near by </h2>
+             <br/>
+             <h5>Travelers will use this information to find a place that’s in the right spot.</h5>
+             <div class=" col-md-9 group-checkbox" >
+                <hr>
+                <br/>
+                <div class=" col-md-4 checkbox " >
+                  <%= f.check_box :is_restaurant, class:"form-checkbox"%> Restaurant
+                </div>
+             
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_transportation, class:"form-checkbox"%> Transportation
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_gym, class:"form-checkbox"%> Gym
+                </div>
+
+                 <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_store, class:"form-checkbox"%> Store
+                </div> 
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_mall, class:"form-checkbox"%> Mall
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_hypermarket, class:"form-checkbox"%> Hypermarket
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_health_center, class:"form-checkbox" %> Health Center
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_hospital, class:"form-checkbox" %> Hospital
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_daycare, class:"form-checkbox"%> DayCare
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_gas_station, class:"form-checkbox" %> Gas Station
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_park, class:"form-checkbox" %> Park
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_school, class:"form-checkbox" %> School
+                </div>
+
+                 <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_collage, class:"form-checkbox" %> Collage
+                </div>
+
+                 <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_health_center, class:"form-checkbox" %> Health Center
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_coffeeshop, class:"form-checkbox" %> Coffeeshop
+                </div>
+
+               </div>
+              </div>
+           </div>
+        </div>
+
+        <!-- Amenities -->
+        <div class="tab-pane fade hide" id="tab5">
+           <div class="panel panel-default panel-content">
+            <div class="panel-body position">
+             <h2>Help guests find the places Near by </h2>
+             <br/>
+             <h5>Travelers will use this information to find a place that’s in the right spot.</h5>
+             <div class=" col-md-12 group-checkbox" >
+                <hr>
+                <br/>
+                <div class=" col-md-4 checkbox " >
+                  <%= f.check_box :is_breakfast, class:"form-checkbox"%> Breakfast
+                </div>
+             
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_kitchen, class:"form-checkbox"%> Kitchen
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_hour_check_in, class:"form-checkbox"%> 24 - Hour Check in
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_suitable_for_events, class:"form-checkbox"%> Suitable For Events
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_family_friens, class:"form-checkbox"%> Family/Friens
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_home_gym, class:"form-checkbox"%> Home Gym
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_essentials, class:"form-checkbox" %> Essentials
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_tv, class:"form-checkbox" %> TV
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_internet, class:"form-checkbox"%> Internet
+                </div>
+                
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_dryer, class:"form-checkbox" %> Dryer
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_washer, class:"form-checkbox" %> Washer
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_iron, class:"form-checkbox" %> Iron
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_hot_tub, class:"form-checkbox" %> Hot tub
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_hangers, class:"form-checkbox" %> Hangers
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_park, class:"form-checkbox" %> Park
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_pool, class:"form-checkbox" %> Pool
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_shampoo, class:"form-checkbox" %> Shampoo
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_hair_dryer, class:"form-checkbox" %> Hair Dryer
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_doorman, class:"form-checkbox" %> Doorman
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_indoor_fireplace, class:"form-checkbox" %> Indoor Fireplace
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_heating, class:"form-checkbox" %> Heating
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_air_conditioning, class:"form-checkbox" %> Air Condition
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_fan, class:"form-checkbox" %> Fan
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_elevator, class:"form-checkbox" %> Elevetor
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_pets_allowed, class:"form-checkbox" %> Pets allowed
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_wheelchair_accessible, class:"form-checkbox" %> Wheelchair Accessible
+                </div>
+
+                <div class=" col-md-4 checkbox" >
+                  <%= f.check_box :is_smoking_allowed, class:"form-checkbox" %> Smoking Allowed
+                </div>
+                 
+               </div>
+             </div>
+            </div>
+        </div>
+
+        <!-- Photos -->
+        <div class="tab-pane fade hide" id="tab6">
+          <div class="panel panel-default panel-content">
+           <div class="panel-body position">
+            <h2>Help guests find your place</h2>
+            <br/>
+            <h5>Travelers will use this information to find a place that’s in the right spot.</h5>
+             <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">              
+                  <span class="btn btn-default btn-file">
+                    <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos 
+                    <%= file_field_tag "images[]", type: :file, multiple: true %>
+                  </span>
+                </div>    
+              </div>
+            </div>
+            <div id="photos"><%= render 'photos/list' %></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- House Rules & Cancellation -->
+        <div class="tab-pane fade hide" id="tab7">
+          <div class="panel panel-default panel-content">
+            <div class="panel-body position">
+              <h2>Set your Home Rules and Cancellation policies </h2>
+              <br/>
+              <h5>You can set a Rules for renter and explain your policies.</h5>
+              <div class="col-md-9">
+               <hr>
+                 <label>Rules and Restriction</label>
+                 <%= f.text_area :home_rules, rows: 10, cols: 25, :placeholder => "Add Rules of using your property.", :class => 'form-control' %>
+                 <div class="form-group">
+                   <label>Cancellation</label>
+                  <%= f.select :cancellation, [["Strict","Strict"],["Moderate","Moderate"],["Flexible","Flexible"]], id: "cancellation", class:"form-control" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="tab-pane fade hide" id="tab8">
+          <div class="panel panel-default panel-content">
+           <div class="panel-body position">
+            <h2>Set price and fees for your space</h2>
+            <br/>
+            <h5>You can set a price to reflect the space, amenities, and hospitality you’ll be providing.</h5>
+            <div class="col-md-9">
+              <div class="input-group">
+                 <label>Nightly Price</label>
+                 <div class="input-group-addon">$</div>
+                  <%= f.text_field :nightly_price, id: "nightly-price", class:"form-control",placeholder: 'eg: 100$' %>
+               </div>
+              <br/>
+               <div class="input-group">
+                 <label>Weekly Price</label>
+                 <div class="input-group-addon">$</div>
+                  <%= f.text_field :weekly_price, id: "weekly-price", class:"form-control",placeholder: 'eg: 100$' %>
+               </div>
+               <br/>
+             
+                <div class="input-group">
+                   <label>Monthly Fee</label><i class="icon-question-sign"></i> 
+                   <div class="input-group-addon">$</div>
+                    <%= f.text_field :monthly_price, id: "monthly-price", class:"form-control",placeholder: 'eg: 100$' %>
+                </div>
+                <br/>
+
+                <div class="input-group">
+                   <label>Security Deposit</label>
+                   <div class="input-group-addon">$</div>
+                    <%= f.text_field :security_deposit, id: "security-deposit", class:"form-control",placeholder: 'eg: 100$' %>
+                </div>
+                <br/>
+ 
+                <div class="input-group">
+                   <label> Cleaning Fee</label>
+                   <div class="input-group-addon">$</div>
+                    <%= f.text_field :cleaing_fee, id: "cleaing-fee", class:"form-control", placeholder: 'eg: 100$'%>
+                </div>
+                <br/>
+ 
+                <div class="input-group">
+                   <label>Service Fee</label>
+                   <div class="input-group-addon">$</div>
+                    <%= f.text_field :service_fee, id: "service-fee", class:"form-control", placeholder: 'eg: 100$' %>
+                </div>
+                <br/>
+
+                <div class="input-group">
+                   <label>Basic Fund</label>
+                   <div class="input-group-addon">$</div>
+                    <%= f.text_field :basic_fund, id: "basic-fund", class:"form-control", placeholder: 'eg: 100$'%>
+                </div>
+                <br/>
+                  </div>
+               </div>
+             
+           </div>
+          </div>
+         </div>
+       </div>                 
+   </div>
+<% end %> 

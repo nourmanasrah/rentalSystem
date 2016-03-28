@@ -1,0 +1,47 @@
+ <!-- Static navbar -->
+<div id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+ <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container navbar-container">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+              <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand page-scroll" href="#page-top">
+              <i class="fa fa-play-circle"></i><span class="light logo">AirShips</span> 
+          </a>
+      </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+          <% if(!user_signed_in?) %>
+            <li><%= link_to "Sign In", new_user_session_path%></li>
+            <li><%= link_to "Sign Up", new_user_registration_path%></li>
+              <% else %>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag avatar_url(current_user), class: "img-rounded avatar-small"%>&nbsp;
+          <%= current_user.fname %>
+           <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="#">Your Trip</a></li>
+              <li><a href="#">Wish List</a></li>
+              <li><a href="#"><%= link_to "Edit Profile", edit_user_registration_path%></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Account Setting</a></li>
+              <li><a href="#"><%= link_to "Log out", destroy_user_session_path, method: :delete %></a></li>
+            </ul>
+          </li>
+        <% end %>
+
+        <li>
+          <a href="#"><i class="fa fa-envelope-o"></i> Message </a>
+        </li> 
+         <li>
+          <a href="#"><i class="fa fa-home fa-lg"></i> Become a Host </a>
+        </li> 
+      </ul>
+    </div><!--/.nav-collapse -->
+   </div>
+  </div><!--/.container-fluid -->
+</nav>

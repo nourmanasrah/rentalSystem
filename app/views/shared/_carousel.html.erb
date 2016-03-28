@@ -1,0 +1,28 @@
+ <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+    <ol class="carousel-indicators hidden-xs">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <%= image_tag("Italy1.jpg", :alt => "rss feed") %>
+        </div>
+        <div class="item">
+            <%= image_tag("Italy2.jpg", :alt => "rss feed") %>
+        </div>    
+        <div class="item">
+            <%= image_tag("Italy3.jpg", :alt => "rss feed") %>
+        </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+ </div>
+</div>
